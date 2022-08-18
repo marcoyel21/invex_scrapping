@@ -1,0 +1,40 @@
+#README
+
+El proposito de este repositorio es montar los códigos necesarios para crear una base de datos persistentes con los scrappeos de información de carteras y composición de INVEX.
+
+La estructura de la carpeta es la siguiente:
+
+.
+├── Dockerfile
+├── README
+└── scripts
+    ├── composicion_carteras_mensual.sh
+    ├── composicion_carteras_sem.sh
+    ├── config.yaml
+    ├── requirements_mensual.sh
+    ├── requirements_py.txt
+    ├── requirements_sem.sh
+    ├── script.py
+    ├── sql
+    │   ├── create_db.sql
+    │   ├── create_portfolio_holdings_monthly.sql
+    │   ├── create_portfolio_holdings_weekly.sql
+    │   ├── create_portfolio_summary_monthly.sql
+    │   ├── create_portfolio_summary_weekly.sql
+    │   ├── insert_portfolio_holdings_monthly.sql
+    │   ├── insert_portfolio_holdings_weekly.sql
+    │   ├── insert_portfolio_summary_monthly.sql
+    │   ├── insert_portfolio_summary_weekly.sql
+    │   └── sourcedoc.pdf
+    ├── total_carteras_mensual.sh
+    └── total_carteras_sem.sh
+
+
+En el Dockerfile se monta una maquina ubuntu con las librerías necesarias de linux para extraer info de pdfs (PROPPEL+CURL). Esta es una sugerencia pero bien se podría trabajar una propuesta más eficiente.
+
+EN requirements_py.txt se ponen las librerías que se usan de python.
+
+Los 6 archivos con extension sh son los scrappers.
+La carpeta sql contiene los stop procedures para crear las tablas y bases de datos.
+
+El archive script.py es el que se debe correr y este ejecuta a los archivos SH, extrae los datos, los transforma y los manda a una base de datos.
